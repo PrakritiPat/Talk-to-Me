@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Talk to Me!</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <link rel="icon" href="logo1.jpg">
+  </head>
+  
+  <!-- NAVIGATION --> 
+    <nav> 
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+           <a href="word.html">Word</a>
+        </li>
+        <li>
+          <a href="sentence.html">Synonym</a>
+        </li>
+      </ul>
+
+      </nav>
+  <!-- NAVIGATON END --> 
+
+    <h1>Synonyms</h1>
+  
+      <body>
+
+        <p1> The goal is always forward progress, and sometimes we all need a little help.Type any word, and we will provide synonyms, definition, and more.</p1>
+
+
+        <p id="enterName" > Word: </p>
+
+        <div id= "center">
+          <input type="text" id= "inputText" >
+          <button id= "inputBtn" button type="button" class="button2"> Click me! </button>
+    
+      
+        <p id = "syn"></p>
+          
+        <script>
+
+          var inputBtn = document.getElementById("inputBtn");
+          inputBtn.addEventListener("click", display);
+
+        function display() {
+          var fact = document.getElementById("inputText").value
+          const data = null;
+          inputWord = fact;
+
+          const xhr = new XMLHttpRequest();
+          xhr.withCredentials = true;
+
+          xhr.addEventListener('readystatechange', function () {
+              if (this.readyState === this.DONE) {
+                  const response = JSON.parse(this.responseText);
+                  const word = response.word;
+                  const typeOf = response.typeOf.join(', ');
+                  const formattedString = `Other words for ${fact}: ${typeOf}, `;
+                  document.getElementById("syn").innerHTML = formattedString;
+              }
+          });
+          const url = `https://wordsapiv1.p.rapidapi.com/words/${encodeURIComponent(inputWord)}/typeOf`;
+
+          xhr.open('GET', url);
+          xhr.setRequestHeader('X-RapidAPI-Key', '7d84757a59msh7153d9aa370df54p1e8607jsnad4958dc694d');
+          xhr.setRequestHeader('X-RapidAPI-Host', 'wordsapiv1.p.rapidapi.com');
+
+          xhr.send(data);
+          }
+        </script>
+        
+          <img src="logo1.jpg" alt="logo" width="25%" height="25%"> 
+
+            
+
+
+
+      
+          
+        
+      </body>
+</html>

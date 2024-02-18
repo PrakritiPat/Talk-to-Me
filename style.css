@@ -14,10 +14,19 @@ font-family: "Georgia",  ;
 h1 {
   font-size: 300%; 
   font-family: "Georgia" ; 
-   color: #0096c7;
+  color: #0096c7;
   background-color: #caf0f8;
   
 }
+
+.mainP {
+    text-align: center;
+    margin-top: 1%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    }
 
 /* nav bar */
 nav {
@@ -29,10 +38,6 @@ nav {
   
 }
 
-logo {
-    height: 20%; /* Adjust height as needed */
-    width: auto; /* Maintain aspect ratio */
-}
 
 
 ul {
@@ -40,7 +45,7 @@ ul {
   background-color: #0096c7;
   overflow: hidden;
   padding: 2%;
-  margin-left: 60px
+  /*margin-left: 90px */
   /*position: -webkit-sticky;
   position: sticky;*/
   
@@ -107,5 +112,12 @@ li a:hover {
 .button2:hover {
   background-color: #ffcc00;
   color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  color: white;
+  background-color: #0096c7;
 }
 
